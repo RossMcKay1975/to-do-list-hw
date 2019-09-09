@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <h1>ToDo List</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/bundle.js"></script>
+</head>
+<body>
+  <title>To Do List</title>
+  <div id="app">
+    <ul>
+      <input type="text" v-model="newItem">
+      <button v-on:click="saveNewItem">Add New Item</button>
+      <li v-for="(item, index) in items"
+          v-bind:class="{'done': item.done, 'notDone': !item.done}">
+        <span>{{ item.name }}</span>
+        <span v-if="item.done">Done!</span>
+        <button v-if="!item.done" v-on:click="completeItem(index)">
+          Complete</button>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
