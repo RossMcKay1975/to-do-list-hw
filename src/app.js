@@ -5,19 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     el: "#app",
     data: {
       items: [
-        {name: "clean windows", done: false},
-        {name:"cut grass", done: true},
-        {name: "Buy bread", done: false}
+        {name: "clean windows", done: false, priority: "low"},
+        {name:"cut grass", done: true, priority: "high"},
+        {name: "Buy bread", done: false, priority: "low"}
+
         ],
-      newItem:"",
+      newItem: {name: "", priority: "low"},
     },
     methods: {
       saveNewItem: function(){
         this.items.push({
           name: this.newItem,
-          done: false
+          done: false,
+          priority:
          });
-         this.newItem = "";
+         this.newItem = {name: "", priority: "low"};
        },
          completeItem: function(index){
           this.items[index].done = true;

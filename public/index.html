@@ -14,8 +14,12 @@
   <title>To Do List</title>
   <div id="app">
     <ul>
-      <input type="text" v-model="newItem">
+      <input type="text" v-model="newItem.name">
       <button v-on:click="saveNewItem">Add New Item</button>
+      <label for="low">Low</label>
+      <input type="radio" id="low" value="low" v-model="newItem.priority">
+      <label for="high">High</label>
+      <input type="radio" id="high" value="high" v-model="newItem.priority">
       <li v-for="(item, index) in items"
           v-bind:class="{'done': item.done, 'notDone': !item.done}">
         <span>{{ item.name }}</span>
